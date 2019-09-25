@@ -1,0 +1,12 @@
+name: Publish Image
+
+on: [push]
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - uses: ./.github/actions/docker-build
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
