@@ -9,4 +9,4 @@ jobs:
       - uses: actions/checkout@master
       - uses: ./.github/actions/docker-build
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_DOCKER_TOKEN: ${{ secrets.GITHUB_DOCKER_TOKEN }}
