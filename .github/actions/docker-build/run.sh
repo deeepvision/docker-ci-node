@@ -3,7 +3,6 @@
 set -e
 set -u
 
-echo "Executing Docker action"
 cd /github/workspace
 
 docker login docker.pkg.github.com -u sergsadovoi -p $GITHUB_TOKEN
