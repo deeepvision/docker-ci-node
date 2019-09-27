@@ -7,4 +7,5 @@ ENV \
     TERM=xterm
 
 RUN \
-    npm install --global typescript ts-node fs-extra bluebird
+    npm install --global typescript ts-node fs-extra bluebird && \
+    npm cache clean --force
