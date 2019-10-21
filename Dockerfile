@@ -9,11 +9,5 @@ ENV \
     NODE_PATH=/usr/local/lib/node_modules
 
 RUN \
-    npm install --global \
-        typescript \
-        ts-node \
-        fs-extra @types/fs-extra \
-        bluebird @types/bluebird \
-        node-fetch @types/node-fetch\
-        @types/node && \
+    npm install --global typescript ts-node fs-extra @types/fs-extra bluebird @types/bluebird node-fetch @types/node-fetch @types/node && \
     npm cache clean --force
