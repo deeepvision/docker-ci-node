@@ -1,0 +1,6 @@
+{
+  "baseUrl": "/usr/local/lib/node_modules",
+  "typeRoots": [
+    "/usr/local/lib/node_modules/@types"
+  ]
+}
