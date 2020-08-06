@@ -1,17 +1,23 @@
-name: Publish Docker Image
-
-on: [push]
+on:
+  push:
+    branches:
+      - release/*
 
 jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
-      - uses: ./.github/actions/docker-build
+      - uses: deeepvision/github-action-docker-build@release/1.0
+        with:
+          name: ci-android
         env:
-          GITHUB_DOCKER_TOKEN: ${{ secrets.GITHUB_DOCKER_TOKEN }}
-      - uses: ./.github/actions/docker-hub
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - uses: deeepvision/github-action-docker-hub@release/1.0
+        with:
+          githubName: ci-node
+          dockerHubUser: ${{ secrets.DOCKERHUB_USER }}
+          dockerHubPassword: ${{ secrets.DOCKERHUB_PASS }}
+          dockerHubName: deeepvision/ci-node
         env:
-          GITHUB_DOCKER_TOKEN: ${{ secrets.GITHUB_DOCKER_TOKEN }}
-          DOCKERHUB_USER: ${{ secrets.DOCKERHUB_USER }}
-          DOCKERHUB_PASS: ${{ secrets.DOCKERHUB_PASS }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

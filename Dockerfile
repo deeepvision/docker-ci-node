@@ -3,7 +3,6 @@ FROM node:12-alpine
 LABEL maintainer="s.sadovyi@deepvision.team"
 
 ENV \
-    TZ=Europe/Kiev \
     TERM=xterm \
     TS_NODE_PROJECT=/tsconfig.json \
     NODE_PATH=/usr/local/lib/node_modules
@@ -11,5 +10,17 @@ ENV \
 COPY ./rootfs /
 
 RUN \
-    npm install --global typescript ts-node fs-extra @types/fs-extra bluebird @types/bluebird node-fetch @types/node-fetch @types/node && \
-    npm cache clean --force
+    apk upgrade --no-cache && \
+    apk add --no-cache bash && \
+    \
+    # Install Typescript
+    npm install --global \
+        typescript \
+        ts-node @types/node \
+        fs-extra @types/fs-extra \
+        bluebird @types/bluebird \
+        node-fetch @types/node-fetch && \
+    npm cache clean --force \
+    \
+    # Install PHP with Composer
+    apk add --no-cache php7 composer
