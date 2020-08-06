@@ -20,7 +20,7 @@ RUN \
         fs-extra @types/fs-extra \
         bluebird @types/bluebird \
         node-fetch @types/node-fetch && \
-    npm cache clean --force \
+    npm cache clean --force && \
     \
     # Install PHP with Composer
     apk add --no-cache php7 composer
