@@ -11,7 +11,7 @@ COPY ./rootfs /
 
 RUN \
     apk upgrade --no-cache && \
-    apk add --no-cache bash && \
+    apk add --no-cache bash zip && \
     \
     # Install Typescript
     npm install --global \
