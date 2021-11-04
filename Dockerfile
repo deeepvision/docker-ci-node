@@ -1,4 +1,4 @@
-FROM node:14-alpine
+FROM node:16-alpine
 
 LABEL maintainer="s.sadovyi@deepvision.team"
 
@@ -19,6 +19,7 @@ RUN \
         ts-node @types/node \
         fs-extra @types/fs-extra \
         bluebird @types/bluebird \
+        got \
         node-fetch @types/node-fetch && \
     npm cache clean --force && \
     \
