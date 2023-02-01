@@ -1,4 +1,4 @@
-FROM node:16-alpine
+FROM node:18-alpine
 
 LABEL maintainer="s.sadovyi@deepvision.team"
 
@@ -24,4 +24,4 @@ RUN \
     npm cache clean --force && \
     \
     # Install PHP with Composer
-    apk add --no-cache php7 composer
+    apk add --no-cache php composer
