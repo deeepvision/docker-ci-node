@@ -24,4 +24,4 @@ RUN \
     npm cache clean --force && \
     \
     # Install PHP with Composer
-    apk add --no-cache php7 composer
+    apk add --no-cache php81 composer
